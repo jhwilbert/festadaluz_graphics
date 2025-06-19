@@ -3,36 +3,29 @@
 //--------------------------------------------------------------
 void UDPSender::setup(int _numColumns, int _stripHeight, int _stripWidth){
     
-    /* Display settings */
     stripHeight = _stripHeight;
     stripWidth = _stripWidth;
     previewScale = 4;
     numColumns = _numColumns;
-    
-    /* Preview */
     previewSpace = 70;
-    
-    
-    /* UDP Settings */
+
+    /* UDP Settings for connection 1 */
     ofxUDPSettings settings1;
     settings1.sendTo("192.168.1.179", 8888);
     settings1.blocking = false;
     udpConnection1.Setup(settings1);
-    udpConnection2.Connect("192.168.1.179",8888);
-    
-    /* UDP Settings */
+
+    /* UDP Settings for connection 2 */
     ofxUDPSettings settings2;
     settings2.sendTo("192.168.1.180", 8888);
     settings2.blocking = false;
     udpConnection2.Setup(settings2);
-    udpConnection2.Connect("192.168.1.180",8888);
-    
+
     fbo.allocate(numColumns, stripHeight, GL_RGB);
     rotatedFbo.allocate(stripHeight, numColumns, GL_RGB);
-    
     previewColums.resize(numColumns);
-    
 }
+
 
 void UDPSender::sendFbo(ofFbo fbo) {
     ofPixels pixels;

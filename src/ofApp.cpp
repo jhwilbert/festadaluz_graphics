@@ -69,12 +69,3 @@ void ofApp::keyPressed(int key) {
 #endif
 }
 
-//--------------------------------------------------------------
-void ofApp::nextTrack() {
-    // Safe in both headless / display
-}
-
-//--------------------------------------------------------------
-void ofApp::prevTrack() {
-    // Safe in both headless / display
-}
