@@ -8,7 +8,7 @@
 #include "States.h"
 #include "UDPSender.h"
 
-// Detect if we should have a display
+// Define HAS_DISPLAY depending on platform
 #ifdef TARGET_OSX
 #define HAS_DISPLAY 1
 #else
@@ -22,6 +22,8 @@ public:
     void draw();
     void keyPressed(int key);
 
+    void nextTrack();
+    void prevTrack();
 
     int guiXpos, guiYpos;
     bool eventLoaded;

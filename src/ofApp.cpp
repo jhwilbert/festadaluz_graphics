@@ -32,7 +32,7 @@ void ofApp::setup() {
     stateMachine.getSharedData().maxWhite = 255;
     stateMachine.getSharedData().midWhite = 127;
 
-    stateMachine.addState<TestState>();  // Adjust to your actual state names
+    stateMachine.addState<TestState>();  // Change if you use other state names
     currentState = 0;
     stateMachine.changeState("TestState");
 
@@ -69,3 +69,12 @@ void ofApp::keyPressed(int key) {
 #endif
 }
 
+//--------------------------------------------------------------
+void ofApp::nextTrack() {
+    // Safe in both headless / display
+}
+
+//--------------------------------------------------------------
+void ofApp::prevTrack() {
+    // Safe in both headless / display
+}
