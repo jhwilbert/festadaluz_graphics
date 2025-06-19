@@ -5,9 +5,8 @@
 #include "ofxGui.h"
 #include "States.h"
 #include "UDPSender.h"
-#include "midiController.h"
+
 #include "ofMain.h"
-#include "midiEvent.h"
 
 
 class ofApp : public ofBaseApp{
@@ -18,7 +17,7 @@ class ofApp : public ofBaseApp{
 		void draw();
 
 		void keyPressed(int key);
-        void onMidiEvent(midiEvent & event);
+   
 
         void nextTrack();
         void prevTrack();
@@ -41,7 +40,7 @@ class ofApp : public ofBaseApp{
     
     
  
-        midiController controller;
+     
         UDPSender sender;
     
         ofTrueTypeFont font;

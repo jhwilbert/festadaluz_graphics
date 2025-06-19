@@ -44,10 +44,7 @@ void ofApp::setup(){
     // FBO Settings
     fbo.allocate(numColumns,stripHeight,GL_RGB);
     
-    //Controller Settings
-    controller.setup();
-    
-    ofAddListener(midiEvent::events, this, &ofApp::onMidiEvent);
+
 }
 
 
@@ -68,8 +65,7 @@ void ofApp::update(){
     // Update Preview
     sender.update();
     
-    // Update controller
-    controller.setup();
+
     
 }
 
@@ -83,8 +79,7 @@ void ofApp::draw(){
     
     // Draw Sender
     sender.draw();
-    
-    controller.draw();
+
 
 }
 
@@ -96,6 +91,3 @@ void ofApp::keyPressed(int key){
     }
 }
 
-void ofApp::onMidiEvent(midiEvent & event) {
-    
-}
