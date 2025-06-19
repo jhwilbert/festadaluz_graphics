@@ -1,4 +1,6 @@
 #pragma once
+
+#include "ofMain.h"
 #include "ofxNetwork.h"
 #include "ofxStateMachine.h"
 #include "SharedData.h"
@@ -6,49 +8,38 @@
 #include "States.h"
 #include "UDPSender.h"
 
-#include "ofMain.h"
+// Detect if we should have a display
+#ifdef TARGET_OSX
+#define HAS_DISPLAY 1
+#else
+#define HAS_DISPLAY 0
+#endif
+
+class ofApp : public ofBaseApp {
+public:
+    void setup();
+    void update();
+    void draw();
+    void keyPressed(int key);
 
 
-class ofApp : public ofBaseApp{
+    int guiXpos, guiYpos;
+    bool eventLoaded;
 
-	public:
-		void setup();
-		void update();
-		void draw();
+#if HAS_DISPLAY
+    ofFbo fbo;
+    ofTrueTypeFont font;
+#endif
 
-		void keyPressed(int key);
-   
+    int numStrips, stripHeight, stripWidth, numColumns;
+    int bufferSize, sampleRate;
+    vector<string> songs;
+    int currentStateIndex, currentState;
+    int previewScale;
+    int maxWhite;
 
-        void nextTrack();
-        void prevTrack();
+    UDPSender sender;
 
-    
-    
-        int guiXpos,guiYpos;
-        bool eventLoaded;
-    
-        ofFbo fbo;
-    
-    
-        int numStrips,stripHeight, stripWidth,numColumns;
-        int bufferSize, sampleRate;
-        
-        vector<string> songs;
-        int currentStateIndex,currentState;
-        int previewScale;
-        int maxWhite;
-    
-    
- 
-     
-        UDPSender sender;
-    
-        ofTrueTypeFont font;
-    
-
-    private:
-        itg::ofxStateMachine<SharedData> stateMachine;
-    
-    
-    
+private:
+    itg::ofxStateMachine<SharedData> stateMachine;
 };
